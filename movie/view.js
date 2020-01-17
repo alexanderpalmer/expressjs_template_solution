@@ -8,7 +8,7 @@ return `
     <head>
       <meta charset="utf-8">
       <title>Movie list</title>
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="/style.css">
     </head>
     <body>
       <table>
@@ -16,6 +16,8 @@ return `
           <tr>
             <th>ID</td>
             <th>Title</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -23,10 +25,13 @@ return `
             <tr>
               <td>${movie.id}</td>
               <td>${movie.title}</td>
+              <td><a href="/movie/delete/${movie.id}">löschen</a></td>
+              <td><a href="/movie/form/${movie.id}">bearbeiten</a></td>
             </tr>
           `).join('')}
         </tbody>
       </table>
+      <a href="/movie/form">neu</a>
     </body>
 `;
 }

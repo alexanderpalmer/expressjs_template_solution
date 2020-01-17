@@ -1,6 +1,5 @@
 const express = require('express');
 const morgan = require('morgan');
-
 const movieRouter = require('./movie');
 
 // Instanz von Express erzeugen
@@ -10,7 +9,7 @@ const app = express();
 app.use(express.static(__dirname + '/public'));
 
 // Standardroute setzen
-app.get('/', (request, response) => response.redirect('./movie'));
+app.get('/', (request, response) => response.redirect('/movie'));
 
 // Middleware Funktion fürs Logging
 app.use(morgan('dev', {immediate:true}));

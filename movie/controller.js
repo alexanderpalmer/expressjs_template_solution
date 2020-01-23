@@ -2,14 +2,14 @@
  * Controller von movie
  */
 const model = require('./model');
-const view = require('./view');
+//const view = require('./view');
 const form = require('./form');
 
 
 function listAction(request, response) {
   const movies = model.getAll();
-  const body = view.render(movies);
-  response.send(body);
+  // Render Funktion des Response Objekts aufrufen und Daten übergeben
+  response.render(__dirname + '/views/list', { movies: movies });
 }
 
 function deleteAction(request, response) {
@@ -24,9 +24,9 @@ function formAction(request, response) {
   if (request.params.id) {
     movie = model.get(parseInt(request.params.id, 10));
   }
-
-  const body = form.render(movie);
-  response.send(body);
+  response.render(__dirname + '/views/form', { movie: movie });
+  //const body = form.render(movie);
+  //response.send(body);
 }
 
 function saveAction(request, response) {

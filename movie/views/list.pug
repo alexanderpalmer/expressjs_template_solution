@@ -1,0 +1,24 @@
+extends ../templates/base
+
+block content
+
+    table
+        head
+            tr
+                th Id
+                th Title
+                th Year
+                th
+                th
+        tbody
+            each movie in movies
+                tr
+                    td #{movie.id}
+                    td #{movie.title}
+                    td #{movie.year}
+                    td 
+                        a(href="/movie/delete/" + movie.id) löschen
+                    td
+                        a(href="/movie/form/" + movie.id) bearbeiten
+    div#create-button
+        a(href="movie/form") neu

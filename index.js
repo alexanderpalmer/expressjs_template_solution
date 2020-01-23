@@ -15,12 +15,9 @@ app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
 app.get('/', (request, response) => response.redirect('/movie'));
 
-
 app.use(morgan('dev', { immediate: true }));
-
 
 app.use('/movie', movieRouter);
 

@@ -3,7 +3,7 @@
  */
 const model = require('./model');
 //const view = require('./view');
-const form = require('./form');
+//const form = require('./form');
 
 
 function listAction(request, response) {
@@ -24,6 +24,7 @@ function formAction(request, response) {
   if (request.params.id) {
     movie = model.get(parseInt(request.params.id, 10));
   }
+  // Render Funktion des Response Objekts aufrufen und Daten übergeben
   response.render(__dirname + '/views/form', { movie: movie });
   //const body = form.render(movie);
   //response.send(body);

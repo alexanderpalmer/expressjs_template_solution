@@ -19,16 +19,26 @@ function deleteAction(request, response) {
 }
 
 function formAction(request, response) {
-  let movie = {id:'', title:'', year:''};
+  let movie = { id: '', title: '', year: '' };
 
-  if(request.params.id) {
-    movie = model.get(parseInt(request.params.id,10));
+  if (request.params.id) {
+    movie = model.get(parseInt(request.params.id, 10));
   }
 
   const body = form.render(movie);
   response.send(body);
 }
 
+function saveAction(request, response) {
+  const movie = {
+    id: request.body.id,
+    title: request.body.title,
+    year: request.body.year,
+  };
+  model.save(movie);
+  response.redirect(request.baseUrl);
+}
+
 module.exports = {
-  listAction, deleteAction, formAction
+  listAction, deleteAction, formAction, saveAction
 }
